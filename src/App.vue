@@ -34,11 +34,12 @@
 
 
 export default {
+
   //https://openweathermap.org/current#name
   name: 'App',
   data() {
     return {
-      api_key: "e937b2e864a1dbc9042768a0382d78db",
+      api_key: process.env.VUE_APP_API_KEY,
       url_base: "https://api.openweathermap.org/data/2.5/",
       query: "",
       weather: {},

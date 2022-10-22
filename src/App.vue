@@ -39,8 +39,8 @@ export default {
   name: 'App',
   data() {
     return {
-      api_key: process.env.VUE_APP_API_KEY,
-      url_base: "https://api.openweathermap.org/data/2.5/",
+     // api_key: process.env.VUE_APP_API_KEY,
+      url_base: "http://localhost:3000/",
       query: "",
       weather: {},
       weekDays: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -52,9 +52,9 @@ export default {
     async fetchWeather(event) {
       if (event.key === "Enter") {
 
-        let response = await fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`);
+        let response = await fetch(`${this.url_base}?units=metric&q=${this.query}`);
 
-        let json = await response.json();
+        let json = await response.json()
 
         this.weather = await json;
         this.getCurrentDate();
